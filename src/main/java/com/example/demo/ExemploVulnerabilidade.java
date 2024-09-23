@@ -18,11 +18,14 @@ public class ExemploVulnerabilidade {
     @Value("${username.db}")
     private static String usernameDb;
 
+    @Value("${password.db}")
+    private static String passwordDB;
+
     public static void main(String[] args) {
         String userInput = args[0]; // Supondo que userInput seja a entrada do usuário
 
         // Conexão com o banco de dados (apenas para fins de exemplo)
-        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/banco", usernameDb , "senha")) {
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/banco", usernameDb , passwordDB)) {
             Statement statement = connection.createStatement();
             
             // Consulta SQL vulnerável à injeção
